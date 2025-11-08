@@ -87,11 +87,23 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Column(
         children: <Widget>[
-          Text(
-            '0',
-            style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+          Expanded(
+            flex: 1,
+            child: Container(
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.all(24),
+              child: Text(
+                '0',
+                style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              ),
+            ),
           ),
-          Text('버튼을 넣을곳', style: TextStyle(fontSize: 24)),
+          Expanded(
+            flex: 3,
+            child: Center(
+              child: Text('여기에 버튼들이 들어올 거예요', style: TextStyle(fontSize: 24)),
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
