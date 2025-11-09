@@ -48,6 +48,17 @@ class _MyHomePageState extends State<MyHomePage> {
         children: <Widget>[
           Expanded(
             flex: 1,
+            child: Container(
+              alignment: Alignment.centerRight,
+              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              child: Text(
+                '0',
+                style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+          Expanded(
+            flex: 1,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
