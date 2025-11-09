@@ -101,6 +101,50 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
+          Expanded(
+            flex: 1,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('4 pressed');
+                    },
+                    child: Text('4', style: TextStyle(fontSize: 24)),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('5 pressed');
+                    },
+                    child: Text('5', style: TextStyle(fontSize: 24)),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('6 pressed');
+                    },
+                    child: Text('6', style: TextStyle(fontSize: 24)),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      print('* pressed');
+                    },
+                    child: Text('*', style: TextStyle(fontSize: 24)),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       floatingActionButton: FloatingActionButton(
