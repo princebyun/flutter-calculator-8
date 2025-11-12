@@ -35,9 +35,9 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int counter = 0;
 
-  Widget _buildCalcButton(String text, {int flex = 1}) {
+  Widget _buildCalcButton(String text) {
     return Expanded(
-      flex: flex,
+      flex: 1,
       child: Padding(
         padding: const EdgeInsets.all(6.0),
         child: ElevatedButton(
@@ -83,42 +83,9 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
                 _buildCalcButton('7'),
-                /* Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('7 pressed');
-                    },
-                    child: Text('7', style: TextStyle(fontSize: 24)),
-                  ),
-                ),*/
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('8 pressed');
-                    },
-                    child: Text('8', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('9 pressed');
-                    },
-                    child: Text('9', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('/ pressed');
-                    },
-                    child: Text('/', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
+                _buildCalcButton('8'),
+                _buildCalcButton('9'),
+                _buildCalcButton('/'),
               ],
             ),
           ),
@@ -127,42 +94,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('4 pressed');
-                    },
-                    child: Text('4', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('5 pressed');
-                    },
-                    child: Text('5', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('6 pressed');
-                    },
-                    child: Text('6', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('* pressed');
-                    },
-                    child: Text('*', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
+                _buildCalcButton('4'),
+                _buildCalcButton('5'),
+                _buildCalcButton('6'),
+                _buildCalcButton('*'),
               ],
             ),
           ),
@@ -171,42 +106,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('1 pressed');
-                    },
-                    child: Text('1', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('2 pressed');
-                    },
-                    child: Text('2', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('3 pressed');
-                    },
-                    child: Text('3', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('+ pressed');
-                    },
-                    child: Text('+', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
+                _buildCalcButton('1'),
+                _buildCalcButton('2'),
+                _buildCalcButton('3'),
+                _buildCalcButton('+'),
               ],
             ),
           ),
@@ -215,42 +118,10 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('C pressed');
-                    },
-                    child: Text('C', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('0 pressed');
-                    },
-                    child: Text('0', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('= pressed');
-                    },
-                    child: Text('=', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      print('- pressed');
-                    },
-                    child: Text('-', style: TextStyle(fontSize: 24)),
-                  ),
-                ),
+                _buildCalcButton('C'),
+                _buildCalcButton('0'),
+                _buildCalcButton('='),
+                _buildCalcButton('-'),
               ],
             ),
           ),
