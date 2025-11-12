@@ -33,7 +33,31 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  int counter = 0;
+
+  Widget _buildCalcButton(String text, {int flex = 1}) {
+    return Expanded(
+      flex: flex,
+      child: Padding(
+        padding: const EdgeInsets.all(6.0),
+        child: ElevatedButton(
+          onPressed: () => print(text),
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xFFF4F4F4),
+            foregroundColor: Colors.black,
+            shape: const CircleBorder(),
+            padding: const EdgeInsets.all(20),
+            elevation: 0,
+            textStyle: const TextStyle(
+              fontSize: 28,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          child: Text(text),
+        ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +84,8 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Expanded(
+                _buildCalcButton('7'),
+                /* Expanded(
                   flex: 1,
                   child: ElevatedButton(
                     onPressed: () {
@@ -68,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
                     child: Text('7', style: TextStyle(fontSize: 24)),
                   ),
-                ),
+                ),*/
                 Expanded(
                   flex: 1,
                   child: ElevatedButton(
