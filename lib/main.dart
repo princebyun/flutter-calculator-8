@@ -46,8 +46,6 @@ class _MyHomePageState extends State<MyHomePage> {
             backgroundColor: Color(0xFFF4F4F4),
             foregroundColor: Colors.black,
             shape: const CircleBorder(),
-            padding: const EdgeInsets.all(20),
-            elevation: 0,
             textStyle: const TextStyle(
               fontSize: 28,
               fontWeight: FontWeight.bold,
