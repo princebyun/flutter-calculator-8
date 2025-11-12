@@ -10,11 +10,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: '우아한테크코스 프리코스 1주차 문자열 계산기',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Color(0xFF2AC1BC),
+          brightness: Brightness.light,
+        ),
+        scaffoldBackgroundColor: Color(0xFF2AC1BC),
       ),
-      home: const MyHomePage(title: '우테코 프리코스 미션 1주차 계산기'),
+      home: const MyHomePage(title: '우아한테크코스 프리코스 1주차 문자열 계산기'),
     );
   }
 }
@@ -30,12 +34,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter += 5;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -235,11 +233,6 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      /*floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),*/
     );
   }
 }
