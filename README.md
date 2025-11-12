@@ -1,16 +1,43 @@
-# flutter_calculator_8
+# flutter\_calculator\_8
 
-A new Flutter project.
+## 🚀 기능 요구 정리
 
-## Getting Started
+1. 문자열이 들어온다.
+2. 쉼표(`,`) 또는 콜론(`:`)이 구분자로 들어온다.
+3. 구분자로 분리하면 숫자가 있다.
+4. 숫자를 합하여 결과값을 반환한다.
+5. 빈 문자열이 들어오면 **0**으로 처리한다.
+6. 구분자를 커스텀 할 수 있다. (예: `//` 와 `\n` 사이에 문자를 위치하여 지정)
+7. 커스텀 구분자를 사용할 경우, 기본 구분자(`,` , `:`)를 포함하여 총 3개가 된다. 이 외의 구분자가 있을 시 잘못된 입력으로 판단하고 `` `IllegalArgumentException` ``을
+   발생시킨다.
 
-This project is a starting point for a Flutter application.
+## ➡️ 입출력 요구사항
 
-A few resources to get you started if this is your first Flutter project:
+1. 입력 문자열은 **구분자와 양수**로만 이루어져 있어야 한다.
+    * 음수 또는 구분자가 아닌 문자열(숫자 이외)이 입력되었을 경우 `` `IllegalArgumentException` ``을 발생시킨다.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 📋 구현할 기능 목록 정리
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+1. 사용자로부터 문자열을 입력받는 기능
+2. 커스텀 구분자를 생성하는 기능
+3. 지정된 구분자(기본 + 커스텀)를 기준으로 문자열을 분리하는 기능
+4. 분리된 문자열이 양수인지 검증(validation)하는 기능 (음수 또는 문자열 캐치)
+    * **Note:** 빈 문자열은 0으로 반환 처리!
+5. 분리된 숫자(양수)들의 총합을 계산하는 기능
+6. 최종 결과값을 표출하는 기능
+
+## 💡 기능 구현 중 발생한 리팩토링 및 고려 사항
+
+1. **[제약]** 구분자는 문자열이 아닌 '문자(char)'만 가능한가?
+2. **[확인]** 구분자의 위치는 항상 문자열의 맨 앞인가?
+   > 기능 요구사항에 '문자열 앞부분'(`//`와 `\n` 사이)으로 명시되어 있으므로, 맨 앞에만 위치해야 한다.
+3. **[고려]** 양수이면서 소수(실수)인 경우를 확인해야 하는가?
+   > 요구사항에 '양수'라고만 표현되어 있으므로, `` `int` `` 범위보다 큰 수를 고려해야 할 수 있다. 우선 `` `double` `` 타입으로 처리하되, 정수/실수 구분 없이 합산하여 출력한다.
+4. **[수정]** 공백(space)은 구분자로 사용 불가능해야 한다.
+   > 예시에서 공백은 0으로 처리되었으므로, 공백이 구분자로 지정될 경우 에러를 발생시킨다.
+5. **[확인]** 프로그램이 에러 발생 시 종료되어야 하는가?
+   > 요구사항에 '프로그램을 (에러 후) 계속 동작시키라'는 내용이 없으므로, 잘못된 값 입력 시 에러를 발생시키고 현재 작업을 종료하는 것이 맞다. (수정 불필요)
+6. **[테스트]** 사용자가 맨 처음 빈 값을 입력했을 때 0이 출력되는가?
+   > 0이 출력되는 것을 확인. (수정 불필요)
+7. **[버그]** 처음 구분자 배열 생성 시, 빈 값(empty string)이 포함되는 오류 발생.
+8. **[버그]** `` `*` `` 등 일부 특수 문자를 커스텀 구분자로 지정했을 때 정규식(Regex) 오류 발생.
