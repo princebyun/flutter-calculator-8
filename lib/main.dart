@@ -33,7 +33,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int counter = 0;
+  String counter = '0';
 
   Widget _buildCalcButton(String text) {
     return Expanded(
@@ -60,20 +60,30 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
       body: Column(
         children: <Widget>[
           Expanded(
-            flex: 1,
+            flex: 3,
             child: Container(
-              alignment: Alignment.centerRight,
-              padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12),
-              child: Text(
-                '0',
-                style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
+              alignment: Alignment.bottomRight,
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Image.asset('assets/images/img.png', height: 130, width: 500),
+                  const Spacer(),
+                  Text(
+                    counter,
+                    style: const TextStyle(
+                      fontSize: 64,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                ],
               ),
             ),
           ),
