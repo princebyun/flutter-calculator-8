@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'CalculatorLogic.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -33,7 +35,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String counter = '0';
+  final CalculatorLogic calculatorLogic = CalculatorLogic();
 
   Widget _buildCalcButton(String text) {
     return Expanded(
@@ -74,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Image.asset('assets/images/img.png', height: 130, width: 500),
                   const Spacer(),
                   Text(
-                    counter,
+                    calculatorLogic.getCalculatorValue,
                     style: const TextStyle(
                       fontSize: 64,
                       fontWeight: FontWeight.bold,
