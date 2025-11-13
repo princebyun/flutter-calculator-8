@@ -36,6 +36,13 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final CalculatorLogic calculatorLogic = CalculatorLogic();
+  String calculatorValue = '0';
+
+  void buttonPressed(String value) {
+    setState(() {
+      calculatorValue = calculatorLogic.calculatorValueInput(value);
+    });
+  }
 
   Widget _buildCalcButton(String text) {
     return Expanded(
@@ -43,7 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Padding(
         padding: const EdgeInsets.all(6.0),
         child: ElevatedButton(
-          onPressed: () => print(text),
+          onPressed: () => buttonPressed(text),
           style: ElevatedButton.styleFrom(
             backgroundColor: Color(0xFFF4F4F4),
             foregroundColor: Colors.black,
@@ -76,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   Image.asset('assets/images/img.png', height: 130, width: 500),
                   const Spacer(),
                   Text(
-                    calculatorLogic.getCalculatorValue,
+                    calculatorValue,
                     style: const TextStyle(
                       fontSize: 64,
                       fontWeight: FontWeight.bold,
