@@ -13,10 +13,20 @@ class CalculatorLogic {
   }
 
   String calculatorValueInput(String text) {
-    if (text == '+') {
+    if (calculatorValue.contains("=")) {
+      secondValue = 0;
+      calculatorValue = text;
+      firstValue = int.parse(text);
+      return calculatorValue;
+    } else if (text == '+') {
       print(text);
       calculatorValue += " $text ";
       operation = add;
+      return calculatorValue;
+    } else if (text == '-') {
+      print(text);
+      calculatorValue += " $text ";
+      operation = subtract;
       return calculatorValue;
     } else if (text == '=') {
       print(text);
@@ -47,5 +57,7 @@ class CalculatorLogic {
 }
 
 int add(int x, int y) => x + y;
+
+int subtract(int x, int y) => x - y;
 
 typedef Operation = int Function(int x, int y);
