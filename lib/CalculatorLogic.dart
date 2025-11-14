@@ -1,7 +1,7 @@
 class CalculatorLogic {
   String calculatorValue = '0';
-  int firstValue = 0;
-  int secondValue = 0;
+  double firstValue = 0;
+  double secondValue = 0;
   Operation operation = add;
 
   String get getCalculatorValue {
@@ -16,17 +16,22 @@ class CalculatorLogic {
     if (calculatorValue.contains("=")) {
       secondValue = 0;
       calculatorValue = text;
-      firstValue = int.parse(text);
+      firstValue = double.parse(text);
       return calculatorValue;
     } else if (text == '+') {
       print(text);
-      calculatorValue += " $text ";
+      calculatorValue += " $text";
       operation = add;
       return calculatorValue;
     } else if (text == '-') {
       print(text);
-      calculatorValue += " $text ";
+      calculatorValue += " $text";
       operation = subtract;
+      return calculatorValue;
+    } else if (text == '/') {
+      print(text);
+      calculatorValue += " $text";
+      operation = divide;
       return calculatorValue;
     } else if (text == '=') {
       print(text);
@@ -42,22 +47,25 @@ class CalculatorLogic {
     } else if (firstValue == 0) {
       print(text);
       calculatorValue = text;
-      firstValue = int.parse(text);
+      firstValue = double.parse(text);
       return calculatorValue;
     } else if (secondValue == 0) {
       print(text);
       calculatorValue += " $text";
-      secondValue = int.parse(text);
+      secondValue = double.parse(text);
       return calculatorValue;
     } else {
       print("에러");
+      calculatorValue = "에러";
       return calculatorValue;
     }
   }
 }
 
-int add(int x, int y) => x + y;
+double add(double x, double y) => x + y;
 
-int subtract(int x, int y) => x - y;
+double subtract(double x, double y) => x - y;
 
-typedef Operation = int Function(int x, int y);
+double divide(double x, double y) => x / y;
+
+typedef Operation = double Function(double x, double y);
