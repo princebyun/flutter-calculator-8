@@ -33,6 +33,11 @@ class CalculatorLogic {
       calculatorValue += " $text";
       operation = divide;
       return calculatorValue;
+    } else if (text == '*') {
+      print(text);
+      calculatorValue += " $text";
+      operation = multiply;
+      return calculatorValue;
     } else if (text == '=') {
       print(text);
       calculatorValue +=
@@ -67,5 +72,7 @@ double add(double x, double y) => x + y;
 double subtract(double x, double y) => x - y;
 
 double divide(double x, double y) => x / y;
+
+double multiply(double x, double y) => x * y;
 
 typedef Operation = double Function(double x, double y);
