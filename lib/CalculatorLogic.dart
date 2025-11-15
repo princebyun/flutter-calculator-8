@@ -1,6 +1,7 @@
 class CalculatorLogic {
   String calculatorValue = '0';
   List<double> userInputList = [];
+  List<String> operationList = [];
   Operation operation = add;
 
   String get getCalculatorValue {
@@ -21,20 +22,19 @@ class CalculatorLogic {
       return getOperation(text);
     } else if (['C', '='].contains(text)) {
       return getCalculatorOption(text);
-    } else if (userInputList.length < 3) {
-      return inputValueSave(text);
     } else {
+      return inputValueSave(text);
+    } /*else {
       print("에러");
       calculatorValue = "에러";
       return calculatorValue;
-    }
+    }*/
   }
 
   String inputValueSave(String text) {
     if (userInputList.length == 0) {
       calculatorValue = "$text ";
-    }
-    if (userInputList.length == 1) {
+    } else {
       calculatorValue += "$text ";
     }
     userInputList.add(double.parse(text));
@@ -43,12 +43,56 @@ class CalculatorLogic {
 
   String getCalculatorOption(String text) {
     if (text == '=') {
-      calculatorValue +=
-          (' = ' + operation(userInputList[0], userInputList[1]).toString());
+      outerLoop:
+      while (operationList.length > 0) {
+        for (int i = 0; i < operationList.length; i++) {
+          if (['*', '/'].contains(operationList[i])) {
+            if (operationList[i] == '*') {
+              var val1 = userInputList[i];
+              var val2 = userInputList[i + 1];
+              userInputList[i] = val1 * val2;
+              userInputList.removeAt(i + 1);
+              operationList.removeAt(i);
+              continue outerLoop;
+            }
+            if (operationList[i] == '/') {
+              var val1 = userInputList[i];
+              var val2 = userInputList[i + 1];
+              userInputList[i] = val1 / val2;
+              userInputList.removeAt(i + 1);
+              operationList.removeAt(i);
+              continue outerLoop;
+            }
+          }
+        }
+
+        for (int i = 0; i < operationList.length; i++) {
+          if (['+', '-'].contains(operationList[i])) {
+            if (operationList[i] == '+') {
+              var val1 = userInputList[i];
+              var val2 = userInputList[i + 1];
+              userInputList[i] = val1 + val2;
+              userInputList.removeAt(i + 1);
+              operationList.removeAt(i);
+              continue outerLoop;
+            }
+            if (operationList[i] == '-') {
+              var val1 = userInputList[i];
+              var val2 = userInputList[i + 1];
+              userInputList[i] = val1 - val2;
+              userInputList.removeAt(i + 1);
+              operationList.removeAt(i);
+              continue outerLoop;
+            }
+          }
+        }
+      }
+      calculatorValue += (' = ' + userInputList[0].toString());
     }
     if (text == 'C') {
       calculatorValue = '0';
       userInputList = [];
+      operationList = [];
     }
 
     return calculatorValue;
@@ -57,19 +101,23 @@ class CalculatorLogic {
   String getOperation(String text) {
     if (text == '+') {
       calculatorValue += "$text ";
-      operation = add;
+      operationList.add(text);
+      //operation = add;
     }
     if (text == '-') {
       calculatorValue += "$text ";
-      operation = subtract;
+      operationList.add(text);
+      //operation = subtract;
     }
     if (text == '/') {
       calculatorValue += "$text ";
-      operation = divide;
+      operationList.add(text);
+      //operation = divide;
     }
     if (text == '*') {
       calculatorValue += "$text ";
-      operation = multiply;
+      operationList.add(text);
+      //operation = multiply;
     }
     return calculatorValue;
   }
